@@ -1,54 +1,146 @@
-document.getElementById("studentForm").addEventListener("submit", function(event){
+// Select Form
+
+const form = document.getElementById("studentForm");
+
+const table = document.getElementById("studentTable");
+
+// Submit Event
+
+form.addEventListener("submit", function(event){
 
     event.preventDefault();
 
+    // Get Values
+
     let name = document.getElementById("name").value.trim();
+
     let email = document.getElementById("email").value.trim();
+
     let mobile = document.getElementById("mobile").value.trim();
+
     let department = document.getElementById("department").value.trim();
+
     let course = document.getElementById("course").value;
+
     let dob = document.getElementById("dob").value;
+
     let address = document.getElementById("address").value.trim();
 
-    if(name=="" || email=="" || mobile=="" || department=="" || course=="" || dob=="" || address==""){
-        alert("Please fill all fields.");
-        return;
+    // Gender
+
+    let gender = "";
+
+    let genders = document.getElementsByName("gender");
+
+    for(let i=0;i<genders.length;i++){
+
+        if(genders[i].checked){
+
+            gender = genders[i].value;
+
+        }
+
     }
 
-    let emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Skills
 
-    if(!emailPattern.test(email)){
-        alert("Invalid Email.");
+    let skills = [];
+
+    let checkboxes = document.querySelectorAll(".checkbox-group input:checked");
+
+    checkboxes.forEach(function(skill){
+
+        skills.push(skill.value);
+
+    });
+
+    // Mandatory Validation
+
+    if(name=="" || email=="" || mobile=="" || gender=="" || department=="" || course=="" || dob=="" || address==""){
+
+        alert("Please fill all the fields.");
+
         return;
+
     }
 
-    let mobilePattern=/^[0-9]{10}$/;
+    if(skills.length==0){
 
-    if(!mobilePattern.test(mobile)){
-        alert("Mobile number must contain 10 digits.");
+        alert("Please select at least one skill.");
+
         return;
+
     }
 
-    let birthDate=new Date(dob);
-    let today=new Date();
+    // Email Validation
 
-    let age=today.getFullYear()-birthDate.getFullYear();
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-    if(age<18){
+    if(!email.match(emailPattern)){
+
+        alert("Enter a valid Email Address.");
+
+        return;
+
+    }
+
+    // Mobile Validation
+
+    let mobilePattern = /^[0-9]{10}$/;
+
+    if(!mobile.match(mobilePattern)){
+
+        alert("Mobile Number must contain exactly 10 digits.");
+
+        return;
+
+    }
+
+    // Age Validation
+
+    let birthDate = new Date(dob);
+
+    let today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    let month = today.getMonth() - birthDate.getMonth();
+
+    if(month < 0 || (month === 0 && today.getDate() < birthDate.getDate())){
+
+        age--;
+
+    }
+
+    if(age < 18){
+
         alert("Age must be greater than 18.");
+
         return;
+
     }
 
-    let table=document.getElementById("studentTable");
+    // Add Row
 
-    let row=table.insertRow();
+    let row = table.insertRow();
 
-    row.insertCell(0).innerHTML=name;
-    row.insertCell(1).innerHTML=course;
-    row.insertCell(2).innerHTML=department;
+    row.insertCell(0).innerHTML = name;
 
-    alert("Registration Successful!");
+    row.insertCell(1).innerHTML = course;
 
-    document.getElementById("studentForm").reset();
+    row.insertCell(2).innerHTML = department;
+
+    // Success Message
+
+Swal.fire({
+    title: "Success!",
+    text: "Student Registered Successfully",
+    icon: "success",
+    confirmButtonColor: "#8e44ad"
+});
+
+    // Reset Form
+
+    form.reset();
 
 });
