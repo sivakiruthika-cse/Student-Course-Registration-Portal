@@ -1,0 +1,181 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f0ff;
+}
+
+/* Header */
+header{
+    background:#6a0dad;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Navigation */
+nav{
+    background:#4b0082;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#8a2be2;
+}
+
+/* Main Container */
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+/* Card */
+.card{
+    background:white;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(106,13,173,0.2);
+}
+
+h2{
+    text-align:center;
+    color:#6a0dad;
+    margin-bottom:20px;
+}
+
+/* Form */
+label{
+    display:block;
+    margin-top:12px;
+    margin-bottom:6px;
+    font-weight:bold;
+    color:#4b0082;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #c8b6ff;
+    border-radius:8px;
+    outline:none;
+    margin-bottom:12px;
+    transition:0.3s;
+}
+
+/* Hover Effect */
+input:hover,
+select:hover,
+textarea:hover{
+    border-color:#8a2be2;
+    box-shadow:0 0 10px rgba(138,43,226,0.3);
+}
+
+/* Click/Focus Effect */
+input:focus,
+select:focus,
+textarea:focus{
+    border:2px solid #8a2be2;
+    box-shadow:0 0 12px rgba(138,43,226,0.4);
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border:2px solid #8a2be2;
+}
+
+.radio-group,
+.checkbox-group{
+    margin-bottom:12px;
+}
+
+.radio-group input,
+.checkbox-group input{
+    width:auto;
+}
+
+/* Buttons */
+.buttons{
+    margin-top:15px;
+}
+
+button{
+    background:#6a0dad;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+    margin-right:10px;
+}
+
+button:hover{
+    background:#8a2be2;
+    transform:scale(1.05);
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table,th,td{
+    border:1px solid #d8b4fe;
+}
+
+th{
+    background:#6a0dad;
+    color:white;
+}
+
+th,td{
+    padding:12px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f5ecff;
+}
+
+/* Footer */
+footer{
+    background:#4b0082;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+/* Mobile Responsive */
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    button{
+        width:100%;
+        margin-top:10px;
+    }
+
+}
