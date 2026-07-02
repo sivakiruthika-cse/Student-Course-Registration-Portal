@@ -1,106 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Course Registration Portal</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
+
 <body>
 
-<header id="home">
-    <h1>ABC Training Institute</h1>
-</header>
+    <!-- Header -->
 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#register">Register</a>
-    <a href="#students">Students</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <header id="home">
 
-<div class="container">
+        <h1>ABC Training Institute</h1>
+        <p>Student Course Registration Portal</p>
 
-    <div class="card" id="register">
+    </header>
 
-        <h2>Student Registration Form</h2>
+    <!-- Navigation -->
 
-        <form id="studentForm">
+    <nav>
 
-            <label>Full Name</label>
-            <input type="text" id="name">
+        <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
 
-            <label>Email</label>
-            <input type="email" id="email">
+        <a href="#register"><i class="fa-solid fa-user-plus"></i> Register</a>
 
-            <label>Mobile Number</label>
-            <input type="text" id="mobile">
+        <a href="#students"><i class="fa-solid fa-users"></i> Students</a>
 
-            <label>Gender</label>
-            <div class="radio-group">
-                <input type="radio" name="gender" value="Male"> Male
-                <input type="radio" name="gender" value="Female"> Female
-            </div>
+        <a href="#contact"><i class="fa-solid fa-phone"></i> Contact</a>
 
-            <label>Department</label>
-            <input type="text" id="department">
+    </nav>
 
-            <label>Course</label>
-            <select id="course">
-                <option value="">Select Course</option>
-                <option>Web Development</option>
-                <option>Python</option>
-                <option>Java</option>
-                <option>AI</option>
-            </select>
+    <div class="container">
 
-            <label>Skills</label>
+        <!-- Registration Form -->
 
-            <div class="checkbox-group">
-                <input type="checkbox" value="HTML"> HTML
-                <input type="checkbox" value="CSS"> CSS
-                <input type="checkbox" value="JavaScript"> JavaScript
-                <input type="checkbox" value="Python"> Python
-            </div>
+        <div class="card" id="register">
 
-            <label>Date of Birth</label>
-            <input type="date" id="dob">
+            <h2>Student Registration Form</h2>
 
-            <label>Address</label>
-            <textarea id="address"></textarea>
+            <form id="studentForm">
 
-            <div class="buttons">
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
-            </div>
+                <label><i class="fa-solid fa-user"></i> Full Name</label>
+                <input type="text" id="name">
 
-        </form>
+                <label><i class="fa-solid fa-envelope"></i> Email</label>
+                <input type="email" id="email">
+
+                <label><i class="fa-solid fa-phone"></i> Mobile Number</label>
+                <input type="text" id="mobile">
+
+                <label><i class="fa-solid fa-venus-mars"></i> Gender</label>
+
+                <div class="radio-group">
+
+                    <input type="radio" name="gender" value="Male"> Male
+
+                    <input type="radio" name="gender" value="Female"> Female
+
+                </div>
+
+                <label><i class="fa-solid fa-building"></i> Department</label>
+                <input type="text" id="department">
+
+                <label><i class="fa-solid fa-book"></i> Course</label>
+
+                <select id="course">
+
+                    <option value="">Select Course</option>
+
+                    <option>Web Development</option>
+
+                    <option>Java Programming</option>
+
+                    <option>Python Programming</option>
+
+                    <option>Artificial Intelligence</option>
+
+                    <option>Data Science</option>
+
+                </select>
+
+                <label><i class="fa-solid fa-laptop-code"></i> Skills</label>
+
+                <div class="checkbox-group">
+
+                    <input type="checkbox" value="HTML"> HTML
+
+                    <input type="checkbox" value="CSS"> CSS
+
+                    <input type="checkbox" value="JavaScript"> JavaScript
+
+                    <input type="checkbox" value="Python"> Python
+
+                </div>
+
+                <label><i class="fa-solid fa-calendar"></i> Date of Birth</label>
+                <input type="date" id="dob">
+
+                <label><i class="fa-solid fa-location-dot"></i> Address</label>
+
+                <textarea id="address" rows="4"></textarea>
+
+                <div class="buttons">
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Submit
+
+                    </button>
+
+                    <button type="reset">
+
+                        <i class="fa-solid fa-rotate"></i>
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- Student Table -->
+
+        <div class="card" id="students">
+
+            <h2>Registered Students</h2>
+
+            <table id="studentTable">
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Course</th>
+
+                    <th>Department</th>
+
+                </tr>
+
+            </table>
+
+        </div>
 
     </div>
 
-    <div class="card" id="students">
+    <footer id="contact">
 
-        <h2>Registered Students</h2>
+        <p>
 
-        <table id="studentTable">
+            <i class="fa-solid fa-graduation-cap"></i>
 
-            <tr>
-                <th>Name</th>
-                <th>Course</th>
-                <th>Department</th>
-            </tr>
+            © 2026 ABC Training Institute | All Rights Reserved
 
-        </table>
+        </p>
 
-    </div>
+    </footer>
 
-</div>
-
-<footer id="contact">
-    <p>© 2026 ABC Training Institute</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
